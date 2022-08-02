@@ -1,1 +1,7 @@
 /* Add application styles & imports to this file! */
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: local('HelveticaNeue'),
+    url(./assets/fonts/helveticaneue/HelveticaNeueBd.ttf) format('truetype');
+}
