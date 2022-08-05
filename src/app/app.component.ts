@@ -57,8 +57,11 @@ export class AppComponent {
       this.checkWord();
 
       // this.wordComponents.toArray()[this.wordIndex].shake();
-      this.wordComponents.toArray()[this.wordIndex].flip();
-
+      if (this.wordIndex % 2 == 0)
+        this.wordComponents.toArray()[this.wordIndex].flip();
+      else
+        this.wordComponents.toArray()[this.wordIndex].shake();
+        
       this.words[this.wordIndex].letters[0].state = LetterStates.BeforeCheckIsBlank;
       this.words[this.wordIndex].letters[1].state = LetterStates.BeforeCheckNotBlank;
       this.words[this.wordIndex].letters[2].state = LetterStates.RightLetterRightPlace;
