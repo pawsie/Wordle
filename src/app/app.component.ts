@@ -3,6 +3,7 @@ import { LetterStates } from '../letter/letter';
 import { Word } from '../word/word';
 import { WordComponent } from '../word/word.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,7 +24,7 @@ export class AppComponent {
     this.resetWords();
   }
 
-  @ViewChildren('appwords') components!:QueryList<WordComponent>;
+  @ViewChildren('appword') wordComponents !: QueryList<WordComponent>;
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) { 
@@ -55,7 +56,8 @@ export class AppComponent {
       (event.key == "Enter")){
       this.checkWord();
 
-      this.components.toArray()[this.wordIndex].shake();
+      // this.wordComponents.toArray()[this.wordIndex].shake();
+      this.wordComponents.toArray()[this.wordIndex].flip();
 
       this.words[this.wordIndex].letters[0].state = LetterStates.BeforeCheckIsBlank;
       this.words[this.wordIndex].letters[1].state = LetterStates.BeforeCheckNotBlank;
